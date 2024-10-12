@@ -1,5 +1,5 @@
-import kafka from '../kafka/config.js'; // Adjust the path as necessary
-import { addUser,addComment } from '../Controller/Commandcontroller.js'; // Adjust the path to where your addUser and addComment functions are defined
+import kafka from '../kafka/config.js'; 
+import { addUser,addComment,addPost } from '../Controller/Commandcontroller.js'; 
 
 const consume = async () => {
   try {
@@ -7,7 +7,7 @@ const consume = async () => {
     const consumer = kafka.consumer({ groupId: "Comment-group" });
     await consumer.connect();
     await consumer.subscribe({
-      topics: ["add-user", "add-comments"],
+      topics: ["add-user",'add-post' ,"add-comments"],
       fromBeginning: true,
     });
     console.log("Listening for messages on 'add-user' and 'add-comment' topics...");
@@ -22,6 +22,8 @@ const consume = async () => {
           await addUser(value);
         } else if (topic === "add-comment") {
           await addComment(value);
+        }else if (topic === "add-post") {
+          await addPost(value);
         }
       },
     });

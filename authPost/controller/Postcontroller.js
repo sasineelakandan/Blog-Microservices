@@ -51,10 +51,9 @@ export const getPost = async (req, res) => {
 
 export const addComment = async (comment) => {
   try {
-    const commandData  = JSON.parse(comment);
-    const newComment = new Comment(commandData);
+    const newComment = new Comment(comment);
     await newComment.save();
-    console.log("new comment added in comment");
+    
   } catch (error) {
     console.log(error);
   }

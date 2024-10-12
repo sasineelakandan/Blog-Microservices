@@ -7,7 +7,7 @@ const consume = async () => {
     const consumer = kafka.consumer({ groupId: "post-group" });
     await consumer.connect();
     await consumer.subscribe({
-      topics: ["add-user", "add-comments"],
+      topics: ["add-user", "add-comment"],
       fromBeginning: true,
     });
     console.log("Listening for messages on 'add-user' and 'add-comment' topics...");
