@@ -4,7 +4,7 @@ import { addUser,addComment } from '../Controller/Commandcontroller.js'; // Adju
 const consume = async () => {
   try {
     console.log('consumer')
-    const consumer = kafka.consumer({ groupId: "post-group" });
+    const consumer = kafka.consumer({ groupId: "Comment-group" });
     await consumer.connect();
     await consumer.subscribe({
       topics: ["add-user", "add-comments"],
