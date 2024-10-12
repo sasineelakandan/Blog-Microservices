@@ -3,7 +3,7 @@ import { addUser,addComment } from '../controller/Postcontroller.js'; // Adjust 
 
 const consume = async () => {
   try {
-    console.log('consumer')
+    
     const consumer = kafka.consumer({ groupId: "post-group" });
     await consumer.connect();
     await consumer.subscribe({

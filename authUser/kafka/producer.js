@@ -1,11 +1,11 @@
 import kafka from '../kafka/config.js';
-import { Partitioners } from 'kafkajs';  // Use destructuring to access Partitioners
+
 
 async function produce(topic, message) {
   try {
     console.log(topic, message);  // Logging the topic and message
 
-    const producer = kafka.producer({ createPartitioner: Partitioners.LegacyPartitioner });
+    const producer = kafka.producer()
     
 
     await producer.connect();
