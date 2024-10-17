@@ -3,7 +3,7 @@ import kafka from '../kafka/config.js';
 
 async function produce(topic, message) {
   try {
-    console.log(topic, message); 
+    
 
     const producer = kafka.producer()
     
