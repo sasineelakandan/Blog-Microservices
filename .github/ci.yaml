@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch: # Allows manual triggering of the workflow
 
 jobs:
   build:
@@ -27,7 +28,12 @@ jobs:
       with:
         context: .  
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/blogmicroservices:1
+        tags: ${{ secrets.DOCKER_USERNAME }}/blogmicroservices:latest # Using "latest" tag for simplicity
 
     - name: Log out from Docker Hub
       run: docker logout
+
+    - name: Notify Success
+      if: success() # Sends a success message if all previous steps succeed
+      run: echo "Docker image has been built and pushed successfully!"
+
