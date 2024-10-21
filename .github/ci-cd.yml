@@ -29,4 +29,4 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker push sasideva/blogmicroservices:latest
+          docker push sasideva/blogmicroservices
