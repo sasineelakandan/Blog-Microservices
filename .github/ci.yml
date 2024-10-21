@@ -16,12 +16,12 @@ jobs:
 
       # Step 2: Log in to Docker Hub
       - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME}}" --password-stdin
 
       # Step 3: Build the Docker image
       - name: Build the Docker image
-        run: docker build -t sasideva/blogmicroservices .
+        run: docker build -t sasideva/blogmicroservices:latest .
 
       # Step 4: Push the Docker image to Docker Hub
       - name: Push the Docker image
-        run: docker push sasideva/blogmicroservices
+        run: docker push sasideva/blogmicroservices:latest
