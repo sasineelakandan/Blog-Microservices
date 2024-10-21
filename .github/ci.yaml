@@ -1,10 +1,10 @@
-name: CI/CD Pipeline
+name: CI
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allows manual triggering of the workflow
+  workflow_dispatch: 
 
 jobs:
   build:
@@ -28,12 +28,12 @@ jobs:
       with:
         context: .  
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/blogmicroservices:latest # Using "latest" tag for simplicity
+        tags: ${{ secrets.DOCKER_USERNAME }}/blogmicroservices:latest 
 
     - name: Log out from Docker Hub
       run: docker logout
 
     - name: Notify Success
-      if: success() # Sends a success message if all previous steps succeed
+      if: success() 
       run: echo "Docker image has been built and pushed successfully!"
 
