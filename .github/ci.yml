@@ -20,8 +20,8 @@ jobs:
 
       # Step 3: Build the Docker image
       - name: Build the Docker image
-        run: docker build -t sasideva/blogmicroservices:latest .
+        run: docker build -t sasideva/blogmicroservices .
 
       # Step 4: Push the Docker image to Docker Hub
       - name: Push the Docker image
-        run: docker push sasideva/blogmicroservices:latest
+        run: docker push sasideva/blogmicroservices
