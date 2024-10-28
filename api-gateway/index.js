@@ -20,7 +20,7 @@ app.use(
 app.use(
   "/api/comments",
   createProxyMiddleware({
-    target: "http://localhost:10000",
+    target: "http://localhost:7000",
     changeOrigin: true,
   })
 );
